@@ -131,7 +131,7 @@ function noQ_api(promiseCtor)
 		{									//or negatively when the first input is negative
 			var d = this.defer(), count = (a && a.length) || 0, r = [];
 			if(p)	d.then(p, n);
-			if(count == 0)	return(d.resolve());
+			if(count == 0)	return(d.resolve([]));
 			a.forEach(function(o, i)
 			{
 				o.then(function noQ_all_then(v)
