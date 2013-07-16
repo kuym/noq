@@ -1,0 +1,33 @@
+{
+	"name": "noq",
+	"version": "0.0.2",
+	"description": "noQ: Micro promises library",
+	"main": "noq.js",
+	"scripts":
+	{
+		"test": "true"
+	},
+	"repository": "",
+	"keywords":
+	[
+		"q",
+		"promises",
+		"defer",
+		"then"
+	],
+	"repository":
+	{
+		"type": "git",
+		"http://github.com/kuym/noq.git"
+	},
+	"dependencies":
+	{
+	},
+	"author":
+	{
+		"name": "Kuy Mainwaring"
+	},
+	"license": "CC-SA-BY-3.0",
+	"readmeFilename": "README.md",
+	"readme": "noQ: Micro promises library, designed for full compatibility with a minimum subset of the 'q' library (http://github.com/kriskowal/q), which happens to be the only subset I use (and is sufficient for most cases.)\nDiffers in two primary regards: predictability of function and configurable exception absorption.\nQ's main shortcoming is that it's easy to get into hard-to-debug failure cases. noQ will noisily warn you if resolved promises are unhandled.\n\nvar Q = require('noq').noTry;"
+}
