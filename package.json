@@ -7,7 +7,6 @@
 	{
 		"test": "true"
 	},
-	"repository": "",
 	"keywords":
 	[
 		"q",
@@ -18,7 +17,7 @@
 	"repository":
 	{
 		"type": "git",
-		"http://github.com/kuym/noq.git"
+		"url": "http://github.com/kuym/noq.git"
 	},
 	"dependencies":
 	{
