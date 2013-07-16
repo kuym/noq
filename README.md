@@ -20,7 +20,7 @@ normal API is perfect (alternately, a `doTry` property is exposed to allow switc
 
 
 **noQ** also features several subtle but very useful improvements to **q** - promise constants
-(also known as ***presolved*** promises) and better degenerate `Q.all()` functionality.
+(also known as ***presolved*** promises), decreased redundancy and better degenerate `Q.all()` functionality.
 
 ###***Presolved*** promises
 
