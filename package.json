@@ -1,6 +1,6 @@
 {
 	"name": "noq",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "noQ: Micro promises library",
 	"main": "noq.js",
 	"scripts":

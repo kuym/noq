@@ -7,15 +7,11 @@ Promise.prototype =
 {
 	resolve: function noQ_Promise_resolve(r)
 	{
-		if(this.__val === undefined)
-			this.__seq(this.__c || [], this.__val = true, this.__res = r);
-		return(this);
+		return(this.__complete(r, true));
 	},
 	reject: function noQ_Promise_reject(r)
 	{
-		if(this.__val === undefined)
-			this.__seq(this.__c || [], this.__val = false, this.__res = r);
-		return(this);
+		return(this.__complete(r, false));
 	},
 	then: function noQ_Promise_then(p, n)
 	{
@@ -69,6 +65,25 @@ Promise.prototype =
 				this.__res = e;
 			}
 		}
+	},
+	__complete: function noQ_complete(r, disposition)
+	{
+		if(this.__val !== undefined)
+			throw(new Error("Attempt to resolve or reject a promise twice."));
+
+		var t = this, c = function(cr, d)
+		{
+			t.__seq(t.__c || [], t.__val = d, t.__res = cr);
+		};
+		if(noQ_id(r))
+		{
+			this.__val = "(chain)";
+			r.then(function(cr){c(cr, true);}, function(cr){c(cr, false);});
+		}
+		else
+			c(r, disposition);
+		
+		return(this);
 	}
 };
 function Promise(initialState, resolution)

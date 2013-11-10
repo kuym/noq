@@ -120,3 +120,26 @@ And of course:
 		//responses.length = 1
 		//responses[0] = "newMacPro"
 	})
+
+
+####Assumption of responsibility (merging)
+
+To merge promises, resolve an unresolved promise with another promise (which may be in either a resolved or unresolved state.)
+
+	function yourFunction()
+	{
+		var p = Q.defer();
+
+		asyncOperation(function()
+		{
+			p.resolve(functionReturningPromise());
+		});
+
+		return(p);
+	}
+
+This makes the outer promise (`p` in this example) inherit the resolution of the inner one.  If it resolves successfully, so does
+the outer promise, and if the inner one fails, so does the outer.  This is useful, for example, when you want to return a promise
+but do not yet know which one of several control flows may be needed.  This is equivalent to manually resolving or rejecting the
+outer promise (`p` in the example) upon success or failure of the inner but in a more succinct way that's also more resistant to
+programming errors.
